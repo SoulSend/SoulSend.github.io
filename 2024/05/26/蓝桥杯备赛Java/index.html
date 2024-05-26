@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="hrc">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="蓝桥杯备赛Java 更新时间：2024年5月26日前言：1、提交的代码不要带pakage，不然会编译出错2、提交的类名必须是Main，不然会编译报错3、导包：import java.util.*;eclipse使用技巧&#x2F;快捷键1、alt+&#x2F; 自动联想编程技巧：1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了2、对于确定一个除法算式的结果是整数还是小数可以使用原数减">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯Java组备赛">
+<meta property="og:url" content="http://example.com/2024/05/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%B5%9BJava/index.html">
+<meta property="og:site_name" content="Future">
+<meta property="og:description" content="蓝桥杯备赛Java 更新时间：2024年5月26日前言：1、提交的代码不要带pakage，不然会编译出错2、提交的类名必须是Main，不然会编译报错3、导包：import java.util.*;eclipse使用技巧&#x2F;快捷键1、alt+&#x2F; 自动联想编程技巧：1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了2、对于确定一个除法算式的结果是整数还是小数可以使用原数减">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-26T11:32:15.720Z">
+<meta property="article:author" content="hrc">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>蓝桥杯Java组备赛 - Future</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="蓝桥杯Java组备赛"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-26 00:00" pubdate>
+          2024年5月26日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">蓝桥杯Java组备赛</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="蓝桥杯备赛Java"><a href="#蓝桥杯备赛Java" class="headerlink" title="蓝桥杯备赛Java"></a>蓝桥杯备赛Java</h1><hr>
+<h5 id="更新时间：2024年5月26日"><a href="#更新时间：2024年5月26日" class="headerlink" title="更新时间：2024年5月26日"></a>更新时间：2024年5月26日</h5><h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><h4 id="1、提交的代码不要带pakage，不然会编译出错"><a href="#1、提交的代码不要带pakage，不然会编译出错" class="headerlink" title="1、提交的代码不要带pakage，不然会编译出错"></a>1、提交的代码不要带pakage，不然会编译出错</h4><h4 id="2、提交的类名必须是Main，不然会编译报错"><a href="#2、提交的类名必须是Main，不然会编译报错" class="headerlink" title="2、提交的类名必须是Main，不然会编译报错"></a>2、提交的类名必须是Main，不然会编译报错</h4><h4 id="3、导包：import-java-util"><a href="#3、导包：import-java-util" class="headerlink" title="3、导包：import java.util.*;"></a>3、导包：import java.util.*;</h4><h2 id="eclipse使用技巧-快捷键"><a href="#eclipse使用技巧-快捷键" class="headerlink" title="eclipse使用技巧&#x2F;快捷键"></a>eclipse使用技巧&#x2F;快捷键</h2><h4 id="1、alt-自动联想"><a href="#1、alt-自动联想" class="headerlink" title="1、alt+&#x2F; 自动联想"></a>1、alt+&#x2F; 自动联想</h4><h3 id="编程技巧："><a href="#编程技巧：" class="headerlink" title="编程技巧："></a>编程技巧：</h3><h4 id="1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了"><a href="#1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了" class="headerlink" title="1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了"></a>1、对于字母大小写转换，只需要将字符对32进行异或操作就可以了</h4><h4 id="2、对于确定一个除法算式的结果是整数还是小数可以使用原数减去原数取整然后和0比较的方法，非常简单且快捷"><a href="#2、对于确定一个除法算式的结果是整数还是小数可以使用原数减去原数取整然后和0比较的方法，非常简单且快捷" class="headerlink" title="2、对于确定一个除法算式的结果是整数还是小数可以使用原数减去原数取整然后和0比较的方法，非常简单且快捷"></a>2、对于确定一个除法算式的结果是整数还是小数可以使用原数减去原数取整然后和0比较的方法，非常简单且快捷</h4><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ocaml">代码示例：<br><span class="hljs-built_in">float</span> a=<span class="hljs-number">123.456</span>,<span class="hljs-keyword">val</span>=<span class="hljs-number">0.0</span>;<br><span class="hljs-built_in">int</span> b=<span class="hljs-number">0</span>;<br>b=(<span class="hljs-built_in">int</span>)a;<br><span class="hljs-keyword">val</span> =a-b;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Debug注意事项："><a href="#Debug注意事项：" class="headerlink" title="Debug注意事项："></a>Debug注意事项：</h3><h4 id="1、当两个部分的代码是复制粘贴写的，比如代码2逻辑与代码1逻辑差不多时，我直接copy代码1到代码2位置，改一改。但是一定要注意！如果你的代码1有逻辑上的bug，那么你的代码2也极有可能会存在bug，在寻找时一定要注意不能只改代码1，还要检查代码2！遭了好多次了，该长点记性了，哭-，这次把它记下来，方便复习"><a href="#1、当两个部分的代码是复制粘贴写的，比如代码2逻辑与代码1逻辑差不多时，我直接copy代码1到代码2位置，改一改。但是一定要注意！如果你的代码1有逻辑上的bug，那么你的代码2也极有可能会存在bug，在寻找时一定要注意不能只改代码1，还要检查代码2！遭了好多次了，该长点记性了，哭-，这次把它记下来，方便复习" class="headerlink" title="1、当两个部分的代码是复制粘贴写的，比如代码2逻辑与代码1逻辑差不多时，我直接copy代码1到代码2位置，改一改。但是一定要注意！如果你的代码1有逻辑上的bug，那么你的代码2也极有可能会存在bug，在寻找时一定要注意不能只改代码1，还要检查代码2！遭了好多次了，该长点记性了，哭~，这次把它记下来，方便复习"></a>1、当两个部分的代码是复制粘贴写的，比如代码2逻辑与代码1逻辑差不多时，我直接copy代码1到代码2位置，改一改。但是一定要注意！如果你的代码1有逻辑上的bug，那么你的代码2也极有可能会存在bug，在寻找时一定要注意不能只改代码1，还要检查代码2！遭了好多次了，该长点记性了，哭~，这次把它记下来，方便复习</h4><h3 id="比赛习惯："><a href="#比赛习惯：" class="headerlink" title="比赛习惯："></a>比赛习惯：</h3><h4 id="1、比赛时间较长，比赛的时候可以带点吃的和水"><a href="#1、比赛时间较长，比赛的时候可以带点吃的和水" class="headerlink" title="1、比赛时间较长，比赛的时候可以带点吃的和水"></a>1、比赛时间较长，比赛的时候可以带点吃的和水</h4><h4 id="2、答题完毕后，检查一下代码格式以后再离开，免得事后担心自己的格式错误导致0分（Main写成Mian啊带包名之类的）"><a href="#2、答题完毕后，检查一下代码格式以后再离开，免得事后担心自己的格式错误导致0分（Main写成Mian啊带包名之类的）" class="headerlink" title="2、答题完毕后，检查一下代码格式以后再离开，免得事后担心自己的格式错误导致0分（Main写成Mian啊带包名之类的）"></a>2、答题完毕后，检查一下代码格式以后再离开，免得事后担心自己的格式错误导致0分（Main写成Mian啊带包名之类的）</h4><h3 id="一、枚举"><a href="#一、枚举" class="headerlink" title="一、枚举"></a>一、枚举</h3><h3 id="二、前缀和-差分"><a href="#二、前缀和-差分" class="headerlink" title="二、前缀和&#x2F;差分"></a>二、前缀和&#x2F;差分</h3><h3 id="三、尺取法-差分"><a href="#三、尺取法-差分" class="headerlink" title="三、尺取法&#x2F;差分"></a>三、尺取法&#x2F;差分</h3><h3 id="四、贪心"><a href="#四、贪心" class="headerlink" title="四、贪心"></a>四、贪心</h3><h3 id="五、二分"><a href="#五、二分" class="headerlink" title="五、二分"></a>五、二分</h3><h3 id="六、递归-分治"><a href="#六、递归-分治" class="headerlink" title="六、递归&#x2F;分治"></a>六、递归&#x2F;分治</h3><h3 id="七、DFS深度优先搜索"><a href="#七、DFS深度优先搜索" class="headerlink" title="七、DFS深度优先搜索"></a>七、DFS深度优先搜索</h3><h4 id="1、搜索所有路径"><a href="#1、搜索所有路径" class="headerlink" title="1、搜索所有路径"></a>1、搜索所有路径</h4><h4 id="2、一般通过栈显示或者隐式的实现。其实也就是回溯，当递归到条件满足的时候，将当前这个路径保存，然后返回，返回到上一层递归调用后面，然后就执行回溯，将刚才标记的节点恢复为未访问，同时如果这个节点添加到集合里了的话还要将其移除"><a href="#2、一般通过栈显示或者隐式的实现。其实也就是回溯，当递归到条件满足的时候，将当前这个路径保存，然后返回，返回到上一层递归调用后面，然后就执行回溯，将刚才标记的节点恢复为未访问，同时如果这个节点添加到集合里了的话还要将其移除" class="headerlink" title="2、一般通过栈显示或者隐式的实现。其实也就是回溯，当递归到条件满足的时候，将当前这个路径保存，然后返回，返回到上一层递归调用后面，然后就执行回溯，将刚才标记的节点恢复为未访问，同时如果这个节点添加到集合里了的话还要将其移除"></a>2、一般通过栈显示或者隐式的实现。其实也就是回溯，当递归到条件满足的时候，将当前这个路径保存，然后返回，返回到上一层递归调用后面，然后就执行回溯，将刚才标记的节点恢复为未访问，同时如果这个节点添加到集合里了的话还要将其移除</h4><h4 id="3、案例：枚举排列"><a href="#3、案例：枚举排列" class="headerlink" title="3、案例：枚举排列"></a>3、案例：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3623">枚举排列</a></h4><h4 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Main &#123;<br>	static ArrayList&lt;ArrayList&lt;<span class="hljs-type">Integer</span>&gt;&gt; list=<span class="hljs-built_in">new</span> ArrayList();<br>	<br>	<span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>		Scanner sc=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br>		<span class="hljs-type">int</span> n=sc.nextInt();<br>		<span class="hljs-type">int</span> k=sc.nextInt();<br>		<span class="hljs-type">int</span> []f=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span> [n+<span class="hljs-number">1</span>];<br>		ArrayList&lt;<span class="hljs-type">Integer</span>&gt; num=<span class="hljs-built_in">new</span> ArrayList();<br>		dfs(n,k,f,num);<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;list.size();i++) &#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;k;j++) &#123;<br>				<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(list.<span class="hljs-keyword">get</span>(i).<span class="hljs-keyword">get</span>(j)+&quot; &quot;);<br>			&#125;<br>			<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>		&#125;<br>		<br>	&#125;<br>	private static <span class="hljs-type">void</span> dfs(<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> k,<span class="hljs-type">int</span>[]f,ArrayList&lt;<span class="hljs-type">Integer</span>&gt; num) &#123;<br>		<span class="hljs-keyword">if</span>(num.size()==k) &#123;<br>			list.<span class="hljs-keyword">add</span>(<span class="hljs-built_in">new</span> ArrayList(num));<br>			<span class="hljs-keyword">return</span> ;<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) &#123;<br>			<span class="hljs-keyword">if</span>(f[i]==<span class="hljs-number">1</span>)<span class="hljs-keyword">continue</span>;<br>			f[i]=<span class="hljs-number">1</span>;<br>			num.<span class="hljs-keyword">add</span>(i);<br>			dfs(n,k,f,num);<br>			f[i]=<span class="hljs-number">0</span>;<br>			num.remove(num.size()<span class="hljs-number">-1</span>);<br>		&#125;<br>		<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="八、BFS广度优先搜索"><a href="#八、BFS广度优先搜索" class="headerlink" title="八、BFS广度优先搜索"></a>八、BFS广度优先搜索</h3><h4 id="1、一般用来寻找最短路径。还有其他用途，但我还不会"><a href="#1、一般用来寻找最短路径。还有其他用途，但我还不会" class="headerlink" title="1、一般用来寻找最短路径。还有其他用途，但我还不会"></a>1、一般用来寻找最短路径。还有其他用途，但我还不会</h4><h4 id="2、使用队列来实现-“分裂”，当前节点有其他可以访问的节点，我们就将其他节点都给入队。这样就将一个节点分成若干个可访问的节点，那么一直分到最后，就一定是最短的那个路径先满足条件"><a href="#2、使用队列来实现-“分裂”，当前节点有其他可以访问的节点，我们就将其他节点都给入队。这样就将一个节点分成若干个可访问的节点，那么一直分到最后，就一定是最短的那个路径先满足条件" class="headerlink" title="2、使用队列来实现 “分裂”，当前节点有其他可以访问的节点，我们就将其他节点都给入队。这样就将一个节点分成若干个可访问的节点，那么一直分到最后，就一定是最短的那个路径先满足条件"></a>2、使用队列来实现 “分裂”，当前节点有其他可以访问的节点，我们就将其他节点都给入队。这样就将一个节点分成若干个可访问的节点，那么一直分到最后，就一定是最短的那个路径先满足条件</h4><h4 id="3、案例：离开中山路"><a href="#3、案例：离开中山路" class="headerlink" title="3、案例：离开中山路"></a>3、案例：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1746">离开中山路</a></h4><h4 id="AC代码：-1"><a href="#AC代码：-1" class="headerlink" title="AC代码："></a>AC代码：</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Main &#123;<br>	<span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>		Scanner sc=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br>		<span class="hljs-type">int</span> n=sc.nextInt();<br>		<span class="hljs-type">int</span> [][]map=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span> [n+<span class="hljs-number">1</span>][n+<span class="hljs-number">1</span>];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) &#123;<br>			String s=sc.next();<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++) &#123;<br>				map[i][j]=s.charAt(j<span class="hljs-number">-1</span>)-<span class="hljs-string">&#x27;0&#x27;</span>;<br>			&#125;<br>		&#125;<br>		<span class="hljs-type">int</span> []x=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span> [<span class="hljs-number">3</span>];<br>		<span class="hljs-type">int</span> []y=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span> [<span class="hljs-number">3</span>];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">2</span>;i++) &#123;<br>			x[i]=sc.nextInt();<br>			y[i]=sc.nextInt();<br>		&#125;<br>		bfs(n,x,y,map);<br>		<br>	&#125;<br>	<span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> bfs(<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> []x,<span class="hljs-type">int</span> []y,<span class="hljs-type">int</span>[][]map) &#123;<br>		LinkedList&lt;Node&gt; queue=<span class="hljs-built_in">new</span> LinkedList();<br>		<span class="hljs-type">int</span> []dx=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[] &#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;;//x方向数组<br>		<span class="hljs-type">int</span> []dy=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[] &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;;//y方向数组<br>		//初始化入队<br>		Node node=<span class="hljs-built_in">new</span> Node(x[<span class="hljs-number">1</span>],y[<span class="hljs-number">1</span>],<span class="hljs-number">0</span>);//起点默认可通过<br>		queue.<span class="hljs-keyword">add</span>(node);<br>		map[x[<span class="hljs-number">1</span>]][y[<span class="hljs-number">1</span>]]=<span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span>(!queue.isEmpty()) &#123;<br>			Node <span class="hljs-keyword">no</span>=queue.poll();<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++) &#123;<br>				<span class="hljs-type">int</span> _x=<span class="hljs-keyword">no</span>.x+dx[i];<br>				<span class="hljs-type">int</span> _y=<span class="hljs-keyword">no</span>.y+dy[i];<br>				<span class="hljs-keyword">if</span>(_x&lt;=<span class="hljs-number">0</span>||_y&lt;=<span class="hljs-number">0</span>||_x&gt;n||_y&gt;n||map[_x][_y]==<span class="hljs-number">1</span>)<span class="hljs-keyword">continue</span>;<br>				<span class="hljs-keyword">if</span>(map[_x][_y]==<span class="hljs-number">0</span>) &#123;<br>					map[_x][_y]=<span class="hljs-number">1</span>;<br>					queue.<span class="hljs-keyword">add</span>(<span class="hljs-built_in">new</span> Node(_x,_y,<span class="hljs-keyword">no</span>.step+<span class="hljs-number">1</span>));<br>				&#125;<br>			&#125;<br>			<span class="hljs-keyword">if</span>(<span class="hljs-keyword">no</span>.x==x[<span class="hljs-number">2</span>]&amp;&amp;<span class="hljs-keyword">no</span>.y==y[<span class="hljs-number">2</span>])<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">no</span>.step);<br>		&#125;<br>	&#125;<br>&#125;<br><span class="hljs-keyword">class</span> Node&#123;<br>	<span class="hljs-type">int</span> step;<br>	<span class="hljs-type">int</span> x;<br>	<span class="hljs-type">int</span> y;<br>	Node()&#123;<br>	&#125;<br>	Node(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y,<span class="hljs-type">int</span> step)&#123;<br>		this.x=x;<br>		this.y=y;<br>		this.step=step;<br>	&#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="九、DP动态规划"><a href="#九、DP动态规划" class="headerlink" title="九、DP动态规划"></a>九、DP动态规划</h3>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>蓝桥杯Java组备赛</div>
+      <div>http://example.com/2024/05/26/蓝桥杯备赛Java/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>hrc</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/26/this-is-my-blog/" title="this is my blog">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">this is my blog</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/25/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ji3sjGJWSGlLRoNkiIHWfQMe-gzGzoHsz","appKey":"8fRIRxnK37Ajth7WGbV6sxj9","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://ji3sjgjw.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
