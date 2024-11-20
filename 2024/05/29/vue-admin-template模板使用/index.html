@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="vue-admin-template模板使用前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端后台页面模板使用">
+<meta property="og:url" content="http://example.com/2024/05/29/vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Zard博客">
+<meta property="og:description" content="vue-admin-template模板使用前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221755134.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221807379.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221807379.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222028810.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222229083.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222243154.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222308777.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222412046.png">
+<meta property="og:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222506180.png">
+<meta property="og:image" content="d:\MyData\Documents\%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF\image-20241117191151927.png">
+<meta property="article:published_time" content="2024-05-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-20T13:20:18.090Z">
+<meta property="article:author" content="SoulSend">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221755134.png">
+
+
+<link rel="canonical" href="http://example.com/2024/05/29/vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/05/29/vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8/","path":"2024/05/29/vue-admin-template模板使用/","title":"前端后台页面模板使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端后台页面模板使用 | Zard博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zard博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">vue-admin-template模板使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E5%85%B3%E4%BA%8Evue-admin-template%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%80%E6%9C%80%E5%9F%BA%E7%A1%80%E7%9A%84%E6%A8%A1%E6%9D%BF%EF%BC%8C%E5%AE%83%E6%98%AFvue-element-admin%E7%9A%84%E9%AA%A8%E6%9E%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%AA%E9%AA%A8%E6%9E%B6%E6%9D%A5%E4%B8%B0%E5%AF%8C%E8%87%AA%E5%B7%B1%E6%83%B3%E8%A6%81%E7%9A%84%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E3%80%82%E8%80%8Cvue-element-admin%E6%98%AF%E5%85%B7%E5%A4%87%E9%9D%9E%E5%B8%B8%E4%B8%B0%E5%AF%8C%E5%8A%9F%E8%83%BD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%BC%80%E5%8F%91%E5%A5%BD%E7%9A%84%E7%B3%BB%E7%BB%9F%E3%80%82%E6%88%91%E4%BB%AC%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E8%BF%99%E4%B9%88%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8vue-admin-template%E6%9D%A5%E5%BC%80%E5%8F%91%E6%88%91%E4%BB%AC%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%83%B3%E8%A6%81%E4%BB%80%E4%B9%88%E5%8A%9F%E8%83%BD%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%8E%BBvue-element-admin%E7%9A%84%E6%BA%90%E7%A0%81%E4%B8%AD%E6%8A%8A%E5%AF%B9%E5%BA%94%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BA%86%E3%80%82%E7%AE%80%E5%8D%95%E4%B8%80%E5%8F%A5%E8%AF%9D%EF%BC%9Aelement%E6%98%AF%E5%B7%A5%E5%85%B7%E5%8C%85%EF%BC%8Ctempleate%E8%A6%81%E4%BB%80%E4%B9%88%E5%8A%9F%E8%83%BD%E6%88%91%E4%BB%AC%E5%B0%B1%E5%8E%BBelement%E6%89%BE%EF%BC%8C%E6%89%BE%E5%88%B0%E5%B0%B1%E6%8A%8A%E5%AF%B9%E5%BA%94%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E7%B2%98%E8%B4%B4%E5%B0%B1%E5%AE%8C%E4%BA%86%EF%BC%8C%E4%B8%8D%E8%BF%87%E7%B2%98%E8%B4%B4%E4%B9%9F%E6%9C%89%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BC%9A%E5%9C%A8%E5%90%8E%E9%9D%A2%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，想要什么功能我们可以直接去vue-element-admin的源码中把对应功能的代码复制粘贴就可以了。简单一句话：element是工具包，templeate要什么功能我们就去element找，找到就把对应功能的代码粘贴就完了，不过粘贴也有方法，会在后面详细说明。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E4%BB%8E0%E4%BD%BF%E7%94%A8vue-admin-template%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">现在开始从0使用vue-admin-template搭建自己的系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E5%87%86%E5%A4%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">前置条件准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E9%A6%96%E5%85%88%E4%BB%8Egitee%E6%88%96%E8%80%85GitHub%E4%B8%8A%E5%85%8B%E9%9A%86vue-admin-template%E7%9A%84%E6%BA%90%E7%A0%81%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E5%8F%AA%E6%8C%82%E4%BA%86gitee%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1、首先从gitee或者GitHub上克隆vue-admin-template的源码，这里我只挂了gitee的路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E4%BD%A0%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%BF%85%E9%A1%BB%E5%85%B7%E5%A4%87%EF%BC%9ANode%EF%BC%8CNPM%EF%BC%8Cvue%E3%80%82%E8%BF%98%E8%A6%81%E6%9C%89%E4%B8%80%E4%B8%AA%E7%BC%96%E8%BE%91%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E7%9A%84ide%EF%BC%8C%E6%88%91%E4%BD%BF%E7%94%A8vscode%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8idea%E6%88%96%E8%80%85%E5%85%B6%E4%BB%96%E3%80%82%E6%B2%A1%E6%9C%89%E5%B0%B1%E5%8E%BB%E5%AE%89%E8%A3%85%EF%BC%8C%E5%BE%88%E7%AE%80%E5%8D%95%E7%9A%84"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2、你的开发环境中必须具备：Node，NPM，vue。还要有一个编辑前端代码的ide，我使用vscode，你可以使用idea或者其他。没有就去安装，很简单的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E6%9D%A5%E5%88%B0%E4%BD%A0%E8%8E%B7%E5%8F%96%E7%9A%84%E6%BA%90%E7%A0%81%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0%EF%BC%8C%E7%84%B6%E5%90%8E%E8%BE%93%E5%85%A5-code-%E8%BF%99%E6%A0%B7%E5%B0%B1%E6%98%AF%E7%94%A8vscode%E6%89%93%E5%BC%80%E4%BA%86%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3、来到你获取的源码的文件夹中，在这里打开控制台，然后输入 code . 这样就是用vscode打开了这个文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%9C%A8vscode%E7%9A%84%E6%8E%A7%E5%88%B6%E4%B8%AD%E8%BE%93%E5%85%A5npm-i-%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E9%9C%80%E8%A6%81%E7%9A%84%E4%BE%9D%E8%B5%96%E3%80%82%E5%A6%82%E6%9E%9C%E4%BE%9D%E8%B5%96%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%8F%AF%E8%83%BD%E6%98%AF%E5%9B%A0%E4%B8%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E5%9B%A0%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8npm%E7%9A%84%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90%EF%BC%8C%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8npm-i-%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96%EF%BC%8C%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%9C%A8npm-i-%E7%9A%84%E5%90%8E%E9%9D%A2%E6%B7%BB%E5%8A%A0%E9%95%9C%E5%83%8F%E6%BA%90%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8C%E8%BF%99%E6%A0%B7%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%E3%80%82%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E6%9F%A5%E8%AF%A2%E3%80%82"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">4、在vscode的控制中输入npm i 下载项目运行需要的依赖。如果依赖下载失败，可能是因为网络原因，可以使用npm的指令更换镜像源，然后使用npm i 下载依赖，或者直接在npm i 的后面添加镜像源的地址，这样也可以下载。具体实现可以自己查询。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E4%BE%9D%E8%B5%96%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%AF%95%E4%BB%A5%E5%90%8E%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4npm-run-dev-%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE%E5%90%8E%EF%BC%8C%E5%B0%B1%E4%BC%9A%E5%BC%B9%E5%87%BA%E7%B3%BB%E7%BB%9F%E9%A1%B5%E9%9D%A2%E5%92%AF"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">5、依赖下载完毕以后，使用指令npm run dev 运行项目后，就会弹出系统页面咯</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%B1%95%E7%A4%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">一、修改侧边栏的展示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E4%BF%AE%E6%94%B9%E6%96%87%E6%9C%AC"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1、修改文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9%E6%96%87%E6%9C%AC%E6%97%81%E8%BE%B9%E7%9A%84%E5%9B%BE%E6%A0%87"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2、修改文本旁边的图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9%E9%9D%A2%E5%8C%85%E5%B1%91%E6%A0%B9%E5%AF%BC%E8%88%AA%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3、修改面包屑根导航的名字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E4%BF%AE%E6%94%B9%E7%BD%91%E9%A1%B5%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">4、修改网页的名称</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A0%87%E7%AD%BE%E5%AF%BC%E8%88%AA%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">二、标签导航设置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%97%A0%E6%B3%95%E9%80%9A%E8%BF%87%E7%AE%80%E5%8D%95%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%B0%B1%E5%AE%8C%E6%88%90%EF%BC%8C%E9%9C%80%E8%A6%81%E5%85%B7%E4%BD%93%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%8C%E4%BD%86%E6%98%AF%E6%88%91%E4%BB%AC%E4%B8%8D%E4%BC%9A%EF%BC%8C%E5%8F%AF%E6%98%AFelement%E4%B8%8A%E9%9D%A2%E6%9C%89%E8%BF%99%E4%B8%AA%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%89%80%E4%BB%A5%E6%88%91%E4%BB%AC%E7%9B%B4%E6%8E%A5%E4%BB%8Eelement%E4%B8%8A%E7%B2%98%E8%B4%B4%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8A%9F%E8%83%BD%E5%88%B0%E6%88%91%E4%BB%AC%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%BF%99%E9%87%8C%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%B0%B1%E5%AE%9E%E7%8E%B0%E5%92%AF"><span class="nav-number">1.1.3.0.1.</span> <span class="nav-text">说明：这是一个功能，无法通过简单的设置就完成，需要具体的代码实现，但是我们不会，可是element上面有这个功能，所以我们直接从element上粘贴对应的功能到我们的模板这里，这样就实现咯</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E6%89%BE%E5%88%B0-layout-components-AppMain-vue%EF%BC%8C%E5%8E%9F%E6%9C%AC%E5%8F%AA%E6%9C%89%EF%BC%8C%E4%BD%BF%E7%94%A8keep-alive%E6%A0%87%E7%AD%BE%E5%B0%86%E5%85%B6%E5%8C%85%E8%A3%B9%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.1.3.0.2.</span> <span class="nav-text">1、找到@&#x2F;layout&#x2F;components&#x2F;AppMain.vue，原本只有，使用keep-alive标签将其包裹如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E7%84%B6%E5%90%8E%E4%BD%A0%E8%BF%98%E8%A6%81%E5%9C%A8js%E7%9A%84computed%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%96%B9%E6%B3%95%EF%BC%8C%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E5%B0%B1%E6%98%AF%E5%89%8D%E9%9D%A2%E6%A0%87%E7%AD%BE%E4%B8%ADcachedViews%E7%9A%84%E5%BC%95%E7%94%A8%E5%95%A6"><span class="nav-number">1.1.3.0.3.</span> <span class="nav-text">2、然后你还要在js的computed中添加方法，这个方法就是前面标签中cachedViews的引用啦</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%E5%81%9A%E5%A5%BD%E4%BA%86%EF%BC%8C%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E8%8E%B7%E5%8F%96%E6%A0%87%E7%AD%BE%E5%AF%BC%E8%88%AA%E7%9A%84%E7%BB%84%E4%BB%B6%E4%BA%86%EF%BC%8C%E9%9C%80%E8%A6%81%E5%9C%A8element%E4%B8%AD%E5%A4%8D%E5%88%B6%E4%B8%80%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E3%80%82%E4%B8%80%E5%85%B1%E4%B8%89%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%9A-layout-components-TagView-store-modules-tagsView-js-store-modules-permission-js-%E6%8A%8A%E8%BF%99%E4%BA%9Belement%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0admin%E4%B8%AD%E5%AF%B9%E5%BA%94%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.3.0.4.</span> <span class="nav-text">3、模板中的配置做好了，我们需要获取标签导航的组件了，需要在element中复制一整个文件夹。一共三个文件夹：@&#x2F;layout&#x2F;components&#x2F;TagView     @store&#x2F;modules&#x2F;tagsView.js     @store&#x2F;modules&#x2F;permission.js  把这些element文件夹复制到admin中对应位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81%E3%80%82%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%AE%8C%E6%AF%95%E5%90%8E%E9%9C%80%E8%A6%81%E5%A4%8D%E5%88%B6%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E5%BC%95%E7%94%A8%E8%BF%99%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.3.0.5.</span> <span class="nav-text">4、复制代码。文件复制完毕后需要复制一些代码引用这些文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5%E3%80%81%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E3%80%82%E5%AE%8C%E6%88%90%E4%B8%8A%E9%9D%A2%E6%AD%A5%E9%AA%A4%E4%BB%A5%E5%90%8E%EF%BC%8C%E9%9C%80%E8%A6%81%E5%86%8D%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E6%8A%8A%E6%88%91%E4%BB%AC%E6%B7%BB%E5%8A%A0%E7%9A%84%E7%BB%84%E4%BB%B6%E5%AF%BC%E5%85%A5"><span class="nav-number">1.1.3.0.6.</span> <span class="nav-text">5、添加代码。完成上面步骤以后，需要再添加一些代码把我们添加的组件导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6%E3%80%81%E7%84%B6%E5%90%8E%E5%9C%A8-layout-index-vue%E5%AF%B9%E5%BA%94%E4%BD%8D%E7%BD%AE%E8%B0%83%E7%94%A8%E7%BB%84%E4%BB%B6%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E6%B8%B2%E6%9F%93%E4%BA%86%EF%BC%8C%E5%A6%82%E5%9B%BE%EF%BC%9A"><span class="nav-number">1.1.3.0.7.</span> <span class="nav-text">6、然后在@layout&#x2F;index.vue对应位置调用组件，也就是渲染了，如图：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7%E3%80%81%E6%9C%80%E5%90%8E%EF%BC%8C%E5%9C%A8-layout-components-index-js%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.3.0.8.</span> <span class="nav-text">7、最后，在@&#x2F;layout&#x2F;components&#x2F;index.js中添加代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8%E3%80%81%E4%BF%AE%E6%94%B9bug%E3%80%82"><span class="nav-number">1.1.3.0.9.</span> <span class="nav-text">8、修改bug。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%99%E6%A0%B7%E6%B7%BB%E5%8A%A0%E7%9A%84%E6%A0%87%E7%AD%BE%E5%AF%BC%E8%88%AA%EF%BC%8C%E4%BC%9A%E5%AD%98%E5%9C%A8%E6%8A%8A%E9%A6%96%E9%A1%B5%E5%8F%89%E6%8E%89%E5%90%8E%E6%89%BE%E4%B8%8D%E5%88%B0i%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E4%B8%8D%E4%BF%A1%E4%BD%A0%E8%AF%95%E8%AF%95%E3%80%82%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E5%B0%B1%E6%98%AF%E5%9C%A8%E8%B7%AF%E7%94%B1%E7%9A%84%E9%A6%96%E9%A1%B5%E7%9A%84meta%E9%83%A8%E5%88%86%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AAaffix%EF%BC%9Atrue%EF%BC%8C%E8%BF%99%E6%98%AF%E6%B7%BB%E5%8A%A0%E5%9B%BA%E9%92%89%EF%BC%8C%E8%BF%99%E6%A0%B7%E9%A6%96%E9%A1%B5%E5%B0%B1%E4%B8%8D%E5%8F%AF%E4%BB%A5%E5%88%A0%E9%99%A4%E4%BA%86%E3%80%82"><span class="nav-number">1.1.3.0.10.</span> <span class="nav-text">这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%99%E6%A0%B7%E5%B0%B1%E9%A1%BA%E5%88%A9%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E5%AF%BC%E8%88%AA%E5%8A%9F%E8%83%BD"><span class="nav-number">1.1.3.0.11.</span> <span class="nav-text">这样就顺利添加一个标签导航功能</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BF%AE%E6%94%B9%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">三、修改登陆页面样式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SoulSend"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">SoulSend</p>
+  <div class="site-description" itemprop="description">加油！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/29/vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SoulSend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zard博客">
+      <meta itemprop="description" content="加油！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端后台页面模板使用 | Zard博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端后台页面模板使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-29 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-29T00:00:00+08:00">2024-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-20 21:20:18" itemprop="dateModified" datetime="2024-11-20T21:20:18+08:00">2024-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="vue-admin-template模板使用"><a href="#vue-admin-template模板使用" class="headerlink" title="vue-admin-template模板使用"></a>vue-admin-template模板使用</h1><h4 id="前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，想要什么功能我们可以直接去vue-element-admin的源码中把对应功能的代码复制粘贴就可以了。简单一句话：element是工具包，templeate要什么功能我们就去element找，找到就把对应功能的代码粘贴就完了，不过粘贴也有方法，会在后面详细说明。"><a href="#前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，想要什么功能我们可以直接去vue-element-admin的源码中把对应功能的代码复制粘贴就可以了。简单一句话：element是工具包，templeate要什么功能我们就去element找，找到就把对应功能的代码粘贴就完了，不过粘贴也有方法，会在后面详细说明。" class="headerlink" title="前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，想要什么功能我们可以直接去vue-element-admin的源码中把对应功能的代码复制粘贴就可以了。简单一句话：element是工具包，templeate要什么功能我们就去element找，找到就把对应功能的代码粘贴就完了，不过粘贴也有方法，会在后面详细说明。"></a>前言：关于vue-admin-template，这是一个最最基础的模板，它是vue-element-admin的骨架，我们使用这个骨架来丰富自己想要的具体功能。而vue-element-admin是具备非常丰富功能的一个完整的开发好的系统。我们个人开发一个小系统，不需要这么丰富的功能，所以我们使用vue-admin-template来开发我们自己的系统，想要什么功能我们可以直接去vue-element-admin的源码中把对应功能的代码复制粘贴就可以了。简单一句话：element是工具包，templeate要什么功能我们就去element找，找到就把对应功能的代码粘贴就完了，不过粘贴也有方法，会在后面详细说明。</h4><h2 id="现在开始从0使用vue-admin-template搭建自己的系统"><a href="#现在开始从0使用vue-admin-template搭建自己的系统" class="headerlink" title="现在开始从0使用vue-admin-template搭建自己的系统"></a>现在开始从0使用vue-admin-template搭建自己的系统</h2><h3 id="前置条件准备"><a href="#前置条件准备" class="headerlink" title="前置条件准备"></a>前置条件准备</h3><h4 id="1、首先从gitee或者GitHub上克隆vue-admin-template的源码，这里我只挂了gitee的路径"><a href="#1、首先从gitee或者GitHub上克隆vue-admin-template的源码，这里我只挂了gitee的路径" class="headerlink" title="1、首先从gitee或者GitHub上克隆vue-admin-template的源码，这里我只挂了gitee的路径"></a>1、首先从gitee或者GitHub上克隆vue-admin-template的源码，这里我只挂了gitee的路径</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitee：https://gitee.com/panjiachen/vue-admin-template</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、你的开发环境中必须具备：Node，NPM，vue。还要有一个编辑前端代码的ide，我使用vscode，你可以使用idea或者其他。没有就去安装，很简单的"><a href="#2、你的开发环境中必须具备：Node，NPM，vue。还要有一个编辑前端代码的ide，我使用vscode，你可以使用idea或者其他。没有就去安装，很简单的" class="headerlink" title="2、你的开发环境中必须具备：Node，NPM，vue。还要有一个编辑前端代码的ide，我使用vscode，你可以使用idea或者其他。没有就去安装，很简单的"></a>2、你的开发环境中必须具备：Node，NPM，vue。还要有一个编辑前端代码的ide，我使用vscode，你可以使用idea或者其他。没有就去安装，很简单的</h4><h4 id="3、来到你获取的源码的文件夹中，在这里打开控制台，然后输入-code-这样就是用vscode打开了这个文件夹"><a href="#3、来到你获取的源码的文件夹中，在这里打开控制台，然后输入-code-这样就是用vscode打开了这个文件夹" class="headerlink" title="3、来到你获取的源码的文件夹中，在这里打开控制台，然后输入 code . 这样就是用vscode打开了这个文件夹"></a>3、来到你获取的源码的文件夹中，在这里打开控制台，然后输入 code . 这样就是用vscode打开了这个文件夹</h4><h4 id="4、在vscode的控制中输入npm-i-下载项目运行需要的依赖。如果依赖下载失败，可能是因为网络原因，可以使用npm的指令更换镜像源，然后使用npm-i-下载依赖，或者直接在npm-i-的后面添加镜像源的地址，这样也可以下载。具体实现可以自己查询。"><a href="#4、在vscode的控制中输入npm-i-下载项目运行需要的依赖。如果依赖下载失败，可能是因为网络原因，可以使用npm的指令更换镜像源，然后使用npm-i-下载依赖，或者直接在npm-i-的后面添加镜像源的地址，这样也可以下载。具体实现可以自己查询。" class="headerlink" title="4、在vscode的控制中输入npm i 下载项目运行需要的依赖。如果依赖下载失败，可能是因为网络原因，可以使用npm的指令更换镜像源，然后使用npm i 下载依赖，或者直接在npm i 的后面添加镜像源的地址，这样也可以下载。具体实现可以自己查询。"></a>4、在vscode的控制中输入npm i 下载项目运行需要的依赖。如果依赖下载失败，可能是因为网络原因，可以使用npm的指令更换镜像源，然后使用npm i 下载依赖，或者直接在npm i 的后面添加镜像源的地址，这样也可以下载。具体实现可以自己查询。</h4><h4 id="5、依赖下载完毕以后，使用指令npm-run-dev-运行项目后，就会弹出系统页面咯"><a href="#5、依赖下载完毕以后，使用指令npm-run-dev-运行项目后，就会弹出系统页面咯" class="headerlink" title="5、依赖下载完毕以后，使用指令npm run dev 运行项目后，就会弹出系统页面咯"></a>5、依赖下载完毕以后，使用指令npm run dev 运行项目后，就会弹出系统页面咯</h4><h3 id="一、修改侧边栏的展示"><a href="#一、修改侧边栏的展示" class="headerlink" title="一、修改侧边栏的展示"></a>一、修改侧边栏的展示</h3><h4 id="1、修改文本"><a href="#1、修改文本" class="headerlink" title="1、修改文本"></a>1、修改文本</h4><p>在路径：src&#x2F;router 也就是路由js中，修改meta属性中的title，这个就是侧边栏中的文本</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221755134.png" alt="image-20241115221755134"></p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221807379.png" alt="image-20241115221807379"></p>
+<h4 id="2、修改文本旁边的图标"><a href="#2、修改文本旁边的图标" class="headerlink" title="2、修改文本旁边的图标"></a>2、修改文本旁边的图标</h4><p>同样路径同样属性下，修改icon，icon就是对应的图标，这个图标可以去elemen官网找到你喜欢的图标的名字，然后粘贴到icon中，就展示成功了：</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115221807379.png" alt="image-20241115221807379"></p>
+<p>修改后效果<br>                <img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222028810.png" alt="image-20241115222028810"></p>
+<h4 id="3、修改面包屑根导航的名字"><a href="#3、修改面包屑根导航的名字" class="headerlink" title="3、修改面包屑根导航的名字"></a>3、修改面包屑根导航的名字</h4><p>找到src&#x2F;components&#x2F;Breadcrumb，修改里面的title为首页：</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222229083.png" alt="image-20241115222229083"></p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222243154.png" alt="image-20241115222243154"></p>
+<p>修改后效果</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222308777.png" alt="image-20241115222308777"></p>
+<h4 id="4、修改网页的名称"><a href="#4、修改网页的名称" class="headerlink" title="4、修改网页的名称"></a>4、修改网页的名称</h4><p>如图，找到src&#x2F;setting,js，修改title：</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222412046.png" alt="image-20241115222412046"></p>
+<p>修改后效果</p>
+<p><img src="C:\Users\HRC\AppData\Roaming\Typora\typora-user-images\image-20241115222506180.png" alt="image-20241115222506180"> </p>
+<h3 id="二、标签导航设置"><a href="#二、标签导航设置" class="headerlink" title="二、标签导航设置"></a>二、标签导航设置</h3><h5 id="说明：这是一个功能，无法通过简单的设置就完成，需要具体的代码实现，但是我们不会，可是element上面有这个功能，所以我们直接从element上粘贴对应的功能到我们的模板这里，这样就实现咯"><a href="#说明：这是一个功能，无法通过简单的设置就完成，需要具体的代码实现，但是我们不会，可是element上面有这个功能，所以我们直接从element上粘贴对应的功能到我们的模板这里，这样就实现咯" class="headerlink" title="说明：这是一个功能，无法通过简单的设置就完成，需要具体的代码实现，但是我们不会，可是element上面有这个功能，所以我们直接从element上粘贴对应的功能到我们的模板这里，这样就实现咯"></a>说明：这是一个功能，无法通过简单的设置就完成，需要具体的代码实现，但是我们不会，可是element上面有这个功能，所以我们直接从element上粘贴对应的功能到我们的模板这里，这样就实现咯</h5><h5 id="1、找到-layout-components-AppMain-vue，原本只有，使用keep-alive标签将其包裹如下："><a href="#1、找到-layout-components-AppMain-vue，原本只有，使用keep-alive标签将其包裹如下：" class="headerlink" title="1、找到@&#x2F;layout&#x2F;components&#x2F;AppMain.vue，原本只有，使用keep-alive标签将其包裹如下："></a>1、找到@&#x2F;layout&#x2F;components&#x2F;AppMain.vue，原本只有<router-view :key="key" />，使用keep-alive标签将其包裹如下：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">&quot;cachedViews&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、然后你还要在js的computed中添加方法，这个方法就是前面标签中cachedViews的引用啦"><a href="#2、然后你还要在js的computed中添加方法，这个方法就是前面标签中cachedViews的引用啦" class="headerlink" title="2、然后你还要在js的computed中添加方法，这个方法就是前面标签中cachedViews的引用啦"></a>2、然后你还要在js的computed中添加方法，这个方法就是前面标签中cachedViews的引用啦</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cachedViews() &#123;</span><br><span class="line">      return this.$store.state.tagsView.cachedViews</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、模板中的配置做好了，我们需要获取标签导航的组件了，需要在element中复制一整个文件夹。一共三个文件夹：-layout-components-TagView-store-modules-tagsView-js-store-modules-permission-js-把这些element文件夹复制到admin中对应位置"><a href="#3、模板中的配置做好了，我们需要获取标签导航的组件了，需要在element中复制一整个文件夹。一共三个文件夹：-layout-components-TagView-store-modules-tagsView-js-store-modules-permission-js-把这些element文件夹复制到admin中对应位置" class="headerlink" title="3、模板中的配置做好了，我们需要获取标签导航的组件了，需要在element中复制一整个文件夹。一共三个文件夹：@&#x2F;layout&#x2F;components&#x2F;TagView     @store&#x2F;modules&#x2F;tagsView.js     @store&#x2F;modules&#x2F;permission.js  把这些element文件夹复制到admin中对应位置"></a>3、模板中的配置做好了，我们需要获取标签导航的组件了，需要在element中复制一整个文件夹。一共三个文件夹：@&#x2F;layout&#x2F;components&#x2F;TagView     @store&#x2F;modules&#x2F;tagsView.js     @store&#x2F;modules&#x2F;permission.js  把这些element文件夹复制到admin中对应位置</h5><h5 id="4、复制代码。文件复制完毕后需要复制一些代码引用这些文件"><a href="#4、复制代码。文件复制完毕后需要复制一些代码引用这些文件" class="headerlink" title="4、复制代码。文件复制完毕后需要复制一些代码引用这些文件"></a>4、复制代码。文件复制完毕后需要复制一些代码引用这些文件</h5><p>在element中的@store&#x2F;modules&#x2F;getters.js中找到下面这三行代码，复制到admin中对应位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">visitedViews: state =&gt; state.tagsView.visitedViews,</span><br><span class="line">  cachedViews: state =&gt; state.tagsView.cachedViews,</span><br><span class="line">    permission_routes: state =&gt; state.permission.routes,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="5、添加代码。完成上面步骤以后，需要再添加一些代码把我们添加的组件导入"><a href="#5、添加代码。完成上面步骤以后，需要再添加一些代码把我们添加的组件导入" class="headerlink" title="5、添加代码。完成上面步骤以后，需要再添加一些代码把我们添加的组件导入"></a>5、添加代码。完成上面步骤以后，需要再添加一些代码把我们添加的组件导入</h5><p>在@store&#x2F;modules&#x2F;getters.js添加代码导入你刚才1添加的两个js。permission和TagView 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import permission from &#x27;./modules/permission&#x27;</span><br><span class="line">import tagsView from &#x27;./modules/tagsView&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>然后在modules中添加代码引用导入的组件permission，tagsView</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">modules: &#123;</span><br><span class="line">    app,</span><br><span class="line">    settings,</span><br><span class="line">    user,</span><br><span class="line">    permission,</span><br><span class="line">    tagsView</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、然后在-layout-index-vue对应位置调用组件，也就是渲染了，如图："><a href="#6、然后在-layout-index-vue对应位置调用组件，也就是渲染了，如图：" class="headerlink" title="6、然后在@layout&#x2F;index.vue对应位置调用组件，也就是渲染了，如图："></a>6、然后在@layout&#x2F;index.vue对应位置调用组件，也就是渲染了，如图：</h5><p><img src="D:\MyData\Documents\学习笔记\计算机技术\image-20241117191151927.png" alt="image-20241117191151927"></p>
+<h5 id="7、最后，在-layout-components-index-js中添加代码"><a href="#7、最后，在-layout-components-index-js中添加代码" class="headerlink" title="7、最后，在@&#x2F;layout&#x2F;components&#x2F;index.js中添加代码"></a>7、最后，在@&#x2F;layout&#x2F;components&#x2F;index.js中添加代码</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export &#123; default as TagsView &#125; from &#x27;./TagsView&#x27;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8、修改bug。"><a href="#8、修改bug。" class="headerlink" title="8、修改bug。"></a>8、修改bug。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、bug：</span><br><span class="line">这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。</span><br><span class="line">2、解决一个警告：&quot;export &#x27;asyncRoutes&#x27; was not found in &#x27;@/router&#x27;，在路由中添加下列代码</span><br><span class="line">/**</span><br><span class="line"> * 动态路由</span><br><span class="line"> */</span><br><span class="line">export const asyncRoutes=[]</span><br></pre></td></tr></table></figure>
+
+<h5 id="这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。"><a href="#这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。" class="headerlink" title="这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。"></a>这样添加的标签导航，会存在把首页叉掉后找不到i页面的情况，不信你试试。解决办法就是在路由的首页的meta部分添加一个affix：true，这是添加固钉，这样首页就不可以删除了。</h5><h5 id="这样就顺利添加一个标签导航功能"><a href="#这样就顺利添加一个标签导航功能" class="headerlink" title="这样就顺利添加一个标签导航功能"></a>这样就顺利添加一个标签导航功能</h5><h4 id="三、修改登陆页面样式"><a href="#三、修改登陆页面样式" class="headerlink" title="三、修改登陆页面样式"></a>三、修改登陆页面样式</h4>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/29/vue3+springboot%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="prev" title="前后端分离项目">
+                  <i class="fa fa-angle-left"></i> 前后端分离项目
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/29/Spring/" rel="next" title="spring">
+                  spring <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">SoulSend</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

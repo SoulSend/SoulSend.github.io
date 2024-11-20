@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录我刚开始前后端分离开发时候遇到的问题一、前端前端部分刚开始接触，所以遇到很多问题，接下来我一一列举1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env.d.ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看12345declare module &#x27;*vue&#x27; &#123;    import &amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后端分离项目">
+<meta property="og:url" content="http://example.com/2024/05/29/vue3+springboot%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:site_name" content="Zard博客">
+<meta property="og:description" content="记录我刚开始前后端分离开发时候遇到的问题一、前端前端部分刚开始接触，所以遇到很多问题，接下来我一一列举1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env.d.ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看12345declare module &#x27;*vue&#x27; &#123;    import &amp;#12">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-20T13:20:59.934Z">
+<meta property="article:author" content="SoulSend">
+<meta property="article:tag" content="前后端分离">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/05/29/vue3+springboot%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/05/29/vue3+springboot%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/","path":"2024/05/29/vue3+springboot前后端分离开发日志/","title":"前后端分离项目"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前后端分离项目 | Zard博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zard博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%88%91%E5%88%9A%E5%BC%80%E5%A7%8B%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%B6%E5%80%99%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">记录我刚开始前后端分离开发时候遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E7%AB%AF"><span class="nav-number">1.1.</span> <span class="nav-text">一、前端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86%E5%88%9A%E5%BC%80%E5%A7%8B%E6%8E%A5%E8%A7%A6%EF%BC%8C%E6%89%80%E4%BB%A5%E9%81%87%E5%88%B0%E5%BE%88%E5%A4%9A%E9%97%AE%E9%A2%98%EF%BC%8C%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%B8%80%E4%B8%80%E5%88%97%E4%B8%BE"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">前端部分刚开始接触，所以遇到很多问题，接下来我一一列举</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8ts%E6%9D%A5%E4%BB%A3%E6%9B%BFjs%E6%B2%A1%E4%BB%80%E4%B9%88%E5%A4%A7%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BD%86%E6%98%AFts%E9%BB%98%E8%AE%A4%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%ABvue%E5%90%8E%E7%BC%80%E7%9A%84%E7%BB%84%E4%BB%B6%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E6%89%8B%E5%8A%A8%E5%88%B0env-d-ts%E6%96%87%E4%BB%B6%E9%87%8C%E9%9D%A2%E9%85%8D%E7%BD%AE%EF%BC%8C%E4%B8%8D%E7%84%B6%E4%BD%A0%E5%9C%A8import%E7%BB%84%E4%BB%B6%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E9%A3%98%E7%BA%A2%EF%BC%8C%E8%99%BD%E7%84%B6%E4%B8%8D%E5%BD%B1%E5%93%8D%E8%BF%90%E8%A1%8C%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%8D%E5%A5%BD%E7%9C%8B"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env.d.ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8vscode%E6%9D%A5%E7%BC%96%E5%86%99%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%9C%A8%E4%BD%BF%E7%94%A8export-default%E5%AF%BC%E5%87%BA%E6%97%B6%EF%BC%8C%E8%A6%81%E6%B3%A8%E6%84%8F%E5%8D%95%E8%AF%8D%E4%B9%8B%E9%97%B4%E8%A6%81%E5%8A%A0%E7%A9%BA%E6%A0%BC%EF%BC%8C%E5%90%8C%E6%97%B6default%E5%92%8C%E5%90%8E%E9%9D%A2%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7%E4%B9%8B%E9%97%B4%E4%B9%9F%E8%A6%81%E5%8A%A0%E7%A9%BA%E6%A0%BC%EF%BC%8C%E4%B8%8D%E7%84%B6%E6%A0%BC%E5%BC%8F%E6%A3%80%E6%9F%A5%E4%BC%9A%E9%A3%98%E7%BA%A2%EF%BC%8C%E4%B8%8D%E5%BD%B1%E5%93%8D%E8%BF%90%E8%A1%8C%EF%BC%8C%E4%BD%86%E6%81%B6%E5%BF%83"><span class="nav-number">1.1.0.1.2.</span> <span class="nav-text">2、如果使用vscode来编写前端代码，在使用export default导出时，要注意单词之间要加空格，同时default和后面的大括号之间也要加空格，不然格式检查会飘红，不影响运行，但恶心</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8axios%E5%92%8C%E5%90%8E%E7%AB%AF%E8%BF%9B%E8%A1%8C%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%9C%A8%E5%90%8E%E7%AB%AFcontroller%E9%82%A3%E4%B8%8A%E9%9D%A2%E5%8A%A0%E4%B8%80%E4%B8%AA-CrossOrigin%E6%B3%A8%E8%A7%A3%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BA%86%EF%BC%8C%E4%B8%8D%E7%84%B6%E5%89%8D%E5%90%8E%E7%AB%AF%E8%AF%B7%E6%B1%82%E4%BC%9A%E8%A2%AB%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8B%A6%E6%88%AA%EF%BC%8C%E5%AF%BC%E8%87%B4%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.1.0.1.3.</span> <span class="nav-text">3、我们使用axios和后端进行异步请求的时候，一定要处理跨域请求的问题，直接在后端controller那上面加一个@CrossOrigin注解就可以了，不然前后端请求会被浏览器拦截，导致请求失败</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E6%88%91%E5%9C%A8%E7%BC%96%E5%86%99%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E7%82%B9%E5%87%BB%E7%99%BB%E5%BD%95%EF%BC%8C%E5%90%8E%E7%AB%AF%E6%98%BE%E7%A4%BA%E8%AF%B7%E6%B1%82%E6%88%90%E5%8A%9F%EF%BC%8C%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E4%BA%86%EF%BC%8C%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E8%B7%B3%E8%BD%AC%E5%88%B0%E6%88%91%E6%83%B3%E8%A6%81%E7%9A%84%E9%A1%B5%E9%9D%A2%EF%BC%8C%E6%97%A0%E8%AE%BA%E8%AF%B7%E6%B1%82%E5%A4%9A%E5%B0%91%E6%AC%A1%E9%83%BD%E5%9C%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC%EF%BC%8C%E6%88%91%E6%89%BE%E4%BA%86%E5%BE%88%E4%B9%85%E5%BE%88%E4%B9%85%EF%BC%8C%E7%BB%88%E4%BA%8E%E5%8F%91%E7%8E%B0%E4%BA%86%E5%8E%9F%E5%9B%A0%EF%BC%8C%E7%94%B1%E4%BA%8E%E6%88%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%E4%BD%BF%E7%94%A8%E7%9A%84%E5%BC%8Fform%E8%A1%A8%E5%8D%95%E6%9D%A5%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%9C%A8%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8Cform%E8%A1%A8%E5%8D%95%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E8%BF%99%E5%B0%B1%E5%AF%BC%E8%87%B4%E6%88%91%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0%E4%BA%86%EF%BC%8C%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E8%B7%B3%E8%BD%AC%E3%80%82%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%E5%B0%B1%E6%98%AF%E5%9C%A8form%E8%A1%A8%E5%8D%95%E4%B8%8A%E4%BD%BF%E7%94%A8-submit-prevent%E7%BB%91%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%88%E5%90%8D%E5%AD%97%E9%9A%8F%E4%BD%A0%EF%BC%89%EF%BC%8C%E5%9C%A8%E8%BF%99%E4%B8%AA%E5%87%BD%E6%95%B0%E9%87%8C%E9%9D%A2%E4%BC%A0%E5%85%A5exent%E5%8F%82%E6%95%B0%EF%BC%8C%E7%84%B6%E5%90%8E%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81event-preventDefault-%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%B0%B1%E9%98%BB%E6%AD%A2%E4%BA%86%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E4%BA%86"><span class="nav-number">1.1.0.1.4.</span> <span class="nav-text">4、我在编写登录页面异步请求编程式路由跳转的时候，点击登录，后端显示请求成功，当前页面自动刷新了，但是没有跳转到我想要的页面，无论请求多少次都在刷新，但是没有实现跳转，我找了很久很久，终于发现了原因，由于我登录界面使用的式form表单来接收数据，在提交数据的时候，form表单会自动刷新，这就导致我当前页面刷新了，但是没有跳转。解决办法就是在form表单上使用@submit.prevent绑定一个函数（名字随你），在这个函数里面传入exent参数，然后编写代码event.preventDefault();，这样就阻止了表单提交自动刷新了</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5%E3%80%81%E5%9C%A8%E9%85%8D%E7%BD%AE%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E8%AE%B0%E5%BE%97%E5%AD%90%E8%B7%AF%E7%94%B1%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%8D%E5%8A%A0-%E3%80%82%E5%A6%82%E6%9E%9C%E6%98%AF%E9%87%8D%E5%AE%9A%E5%90%91%E8%AE%B0%E5%BE%97%E5%86%99%E5%85%A8%E8%B7%AF%E5%BE%84"><span class="nav-number">1.1.0.1.5.</span> <span class="nav-text">5、在配置嵌套路由的时候，一定要记得子路由的路径不加  &#x2F;   。如果是重定向记得写全路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6%E3%80%81%E5%9C%A8%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E6%B8%B2%E6%9F%93%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E8%AE%B0%E5%BE%97%E5%9C%A8%E4%BD%A0%E8%A6%81%E6%B8%B2%E6%9F%93%E7%9A%84%E5%9C%B0%E6%96%B9%E6%B7%BB%E5%8A%A0-%EF%BC%8C%E8%BF%99%E6%A0%B7%E9%A1%B5%E9%9D%A2%E6%89%8D%E4%BC%9A%E6%B8%B2%E6%9F%93%E4%BD%A0%E8%B7%AF%E7%94%B1%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="nav-number">1.1.0.1.6.</span> <span class="nav-text">6、在使用路由渲染的时候，一定要记得在你要渲染的地方添加  ，这样页面才会渲染你路由的组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7%E3%80%81%E4%BD%BF%E7%94%A8pinia%E8%BF%9B%E8%A1%8C%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%EF%BC%8C%E6%AF%94%E5%A6%82%E5%AD%98%E5%82%A8token%EF%BC%8C%E7%8E%B0%E5%9C%A8store%E9%87%8C%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AAts%E8%84%9A%E6%9C%AC%EF%BC%8Cstate%E5%B0%B1%E6%98%AF%E5%AE%83%E5%AD%98%E5%82%A8%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E8%BF%98%E6%9C%89getter%E5%92%8Cseter%E5%87%BD%E6%95%B0%EF%BC%8C%E6%96%B9%E4%BE%BF%E8%8E%B7%E5%8F%96%E5%92%8C%E4%BF%AE%E6%94%B9%E8%BF%99%E4%BA%9B%E6%95%B0%E6%8D%AE%E3%80%82%E4%BD%A0%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E5%BC%95%E5%85%A5%E8%BF%99%E4%B8%AAts%EF%BC%8C%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8setter%E5%92%8Cgetter%E4%BF%AE%E6%94%B9state"><span class="nav-number">1.1.0.1.7.</span> <span class="nav-text">7、使用pinia进行状态管理，比如存储token，现在store里编写一个ts脚本，state就是它存储的数据，还有getter和seter函数，方便获取和修改这些数据。你可以直接在组件中引入这个ts，然后使用setter和getter修改state</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8%E3%80%81%E5%A6%82%E6%9E%9C%E6%83%B3%E5%9C%A8%E8%AF%B7%E6%B1%82%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%81%9A%E4%B8%80%E4%BA%9B%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%EF%BC%8C%E6%AF%94%E5%A6%82%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%94%A8%E6%9D%A5%E5%AD%98%E6%94%BEtoken%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%9C%A8src%E4%B8%8B%E9%9D%A2%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AAaxios%E7%9A%84ts%E6%96%87%E4%BB%B6%EF%BC%8C%E5%9C%A8%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AAaxios%EF%BC%8C%E5%9C%A8%E5%85%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%8C%E5%9C%A8%E8%BF%99%E4%B8%AA%E6%8B%A6%E6%88%AA%E5%99%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%AD%98%E6%94%BEtoken%E7%9A%84%E9%80%BB%E8%BE%91"><span class="nav-number">1.1.0.1.8.</span> <span class="nav-text">8、如果想在请求的时候，做一些前置操作，比如添加一个请求头用来存放token，可以直接在src下面编写一个axios的ts文件，在文件中你可以自定义一个axios，在其中添加一个请求拦截器，在这个拦截器中添加存放token的逻辑</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%90%8E%E7%AB%AF"><span class="nav-number">1.2.</span> <span class="nav-text">二、后端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E6%B3%A8%E6%84%8F%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F%E8%A6%81%E5%92%8Ccontroller%E7%9A%84%E6%B3%A8%E8%A7%A3%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94"><span class="nav-number">1.2.0.0.1.</span> <span class="nav-text">1、注意请求格式要和controller的注解一一对应</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SoulSend"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">SoulSend</p>
+  <div class="site-description" itemprop="description">加油！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/29/vue3+springboot%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SoulSend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zard博客">
+      <meta itemprop="description" content="加油！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前后端分离项目 | Zard博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前后端分离项目
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-29 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-29T00:00:00+08:00">2024-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-20 21:20:59" itemprop="dateModified" datetime="2024-11-20T21:20:59+08:00">2024-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="记录我刚开始前后端分离开发时候遇到的问题"><a href="#记录我刚开始前后端分离开发时候遇到的问题" class="headerlink" title="记录我刚开始前后端分离开发时候遇到的问题"></a>记录我刚开始前后端分离开发时候遇到的问题</h1><h2 id="一、前端"><a href="#一、前端" class="headerlink" title="一、前端"></a>一、前端</h2><h4 id="前端部分刚开始接触，所以遇到很多问题，接下来我一一列举"><a href="#前端部分刚开始接触，所以遇到很多问题，接下来我一一列举" class="headerlink" title="前端部分刚开始接触，所以遇到很多问题，接下来我一一列举"></a>前端部分刚开始接触，所以遇到很多问题，接下来我一一列举</h4><h5 id="1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env-d-ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看"><a href="#1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env-d-ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看" class="headerlink" title="1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env.d.ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看"></a>1、使用ts来代替js没什么大问题，但是ts默认无法识别vue后缀的组件，所以需要手动到env.d.ts文件里面配置，不然你在import组件的时候会飘红，虽然不影响运行，但是不好看</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">declare module &#x27;*vue&#x27; &#123;</span><br><span class="line">    import &#123; ComponentOptions &#125; from &quot;vue&quot;;</span><br><span class="line">    const ComponentOptions: ComponentOptions</span><br><span class="line">    export default ComponentOptions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、如果使用vscode来编写前端代码，在使用export-default导出时，要注意单词之间要加空格，同时default和后面的大括号之间也要加空格，不然格式检查会飘红，不影响运行，但恶心"><a href="#2、如果使用vscode来编写前端代码，在使用export-default导出时，要注意单词之间要加空格，同时default和后面的大括号之间也要加空格，不然格式检查会飘红，不影响运行，但恶心" class="headerlink" title="2、如果使用vscode来编写前端代码，在使用export default导出时，要注意单词之间要加空格，同时default和后面的大括号之间也要加空格，不然格式检查会飘红，不影响运行，但恶心"></a>2、如果使用vscode来编写前端代码，在使用export default导出时，要注意单词之间要加空格，同时default和后面的大括号之间也要加空格，不然格式检查会飘红，不影响运行，但恶心</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">正确：&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&quot;Login&quot;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">错误：&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">  export default&#123;  &lt;--区别在这</span><br><span class="line">    name:&quot;Login&quot;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、我们使用axios和后端进行异步请求的时候，一定要处理跨域请求的问题，直接在后端controller那上面加一个-CrossOrigin注解就可以了，不然前后端请求会被浏览器拦截，导致请求失败"><a href="#3、我们使用axios和后端进行异步请求的时候，一定要处理跨域请求的问题，直接在后端controller那上面加一个-CrossOrigin注解就可以了，不然前后端请求会被浏览器拦截，导致请求失败" class="headerlink" title="3、我们使用axios和后端进行异步请求的时候，一定要处理跨域请求的问题，直接在后端controller那上面加一个@CrossOrigin注解就可以了，不然前后端请求会被浏览器拦截，导致请求失败"></a>3、我们使用axios和后端进行异步请求的时候，一定要处理跨域请求的问题，直接在后端controller那上面加一个@CrossOrigin注解就可以了，不然前后端请求会被浏览器拦截，导致请求失败</h5><h5 id="4、我在编写登录页面异步请求编程式路由跳转的时候，点击登录，后端显示请求成功，当前页面自动刷新了，但是没有跳转到我想要的页面，无论请求多少次都在刷新，但是没有实现跳转，我找了很久很久，终于发现了原因，由于我登录界面使用的式form表单来接收数据，在提交数据的时候，form表单会自动刷新，这就导致我当前页面刷新了，但是没有跳转。解决办法就是在form表单上使用-submit-prevent绑定一个函数（名字随你），在这个函数里面传入exent参数，然后编写代码event-preventDefault-，这样就阻止了表单提交自动刷新了"><a href="#4、我在编写登录页面异步请求编程式路由跳转的时候，点击登录，后端显示请求成功，当前页面自动刷新了，但是没有跳转到我想要的页面，无论请求多少次都在刷新，但是没有实现跳转，我找了很久很久，终于发现了原因，由于我登录界面使用的式form表单来接收数据，在提交数据的时候，form表单会自动刷新，这就导致我当前页面刷新了，但是没有跳转。解决办法就是在form表单上使用-submit-prevent绑定一个函数（名字随你），在这个函数里面传入exent参数，然后编写代码event-preventDefault-，这样就阻止了表单提交自动刷新了" class="headerlink" title="4、我在编写登录页面异步请求编程式路由跳转的时候，点击登录，后端显示请求成功，当前页面自动刷新了，但是没有跳转到我想要的页面，无论请求多少次都在刷新，但是没有实现跳转，我找了很久很久，终于发现了原因，由于我登录界面使用的式form表单来接收数据，在提交数据的时候，form表单会自动刷新，这就导致我当前页面刷新了，但是没有跳转。解决办法就是在form表单上使用@submit.prevent绑定一个函数（名字随你），在这个函数里面传入exent参数，然后编写代码event.preventDefault();，这样就阻止了表单提交自动刷新了"></a>4、我在编写登录页面异步请求编程式路由跳转的时候，点击登录，后端显示请求成功，当前页面自动刷新了，但是没有跳转到我想要的页面，无论请求多少次都在刷新，但是没有实现跳转，我找了很久很久，终于发现了原因，由于我登录界面使用的式form表单来接收数据，在提交数据的时候，form表单会自动刷新，这就导致我当前页面刷新了，但是没有跳转。解决办法就是在form表单上使用@submit.prevent绑定一个函数（名字随你），在这个函数里面传入exent参数，然后编写代码event.preventDefault();，这样就阻止了表单提交自动刷新了</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">模板部分：</span><br><span class="line">&lt;form @submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</span><br><span class="line">.....</span><br><span class="line">脚本部分：</span><br><span class="line">function onSubmit(event:any)&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、在配置嵌套路由的时候，一定要记得子路由的路径不加-。如果是重定向记得写全路径"><a href="#5、在配置嵌套路由的时候，一定要记得子路由的路径不加-。如果是重定向记得写全路径" class="headerlink" title="5、在配置嵌套路由的时候，一定要记得子路由的路径不加  &#x2F;   。如果是重定向记得写全路径"></a>5、在配置嵌套路由的时候，一定要记得子路由的路径不加  &#x2F;   。如果是重定向记得写全路径</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      path:&#x27;/index&#x27;,</span><br><span class="line">      name:&#x27;index&#x27;,</span><br><span class="line">      component:()=&gt;import(&#x27;../views/index/index.vue&#x27;),</span><br><span class="line">      children:[</span><br><span class="line">        &#123;</span><br><span class="line">          path:&#x27;recent&#x27;,  《---子路由路径</span><br><span class="line">          name:&#x27;recent&#x27;,</span><br><span class="line">          component:()=&gt;import(&#x27;../views/index/recent/index.vue&#x27;)</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          path:&#x27;recommend&#x27;,</span><br><span class="line">          name:&#x27;recommend&#x27;,</span><br><span class="line">          component:()=&gt;import(&#x27;../views/index/recommend/index.vue&#x27;)</span><br><span class="line">        &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、在使用路由渲染的时候，一定要记得在你要渲染的地方添加-，这样页面才会渲染你路由的组件"><a href="#6、在使用路由渲染的时候，一定要记得在你要渲染的地方添加-，这样页面才会渲染你路由的组件" class="headerlink" title="6、在使用路由渲染的时候，一定要记得在你要渲染的地方添加  ，这样页面才会渲染你路由的组件"></a>6、在使用路由渲染的时候，一定要记得在你要渲染的地方添加 <RouterView></RouterView> ，这样页面才会渲染你路由的组件</h5><h5 id="7、使用pinia进行状态管理，比如存储token，现在store里编写一个ts脚本，state就是它存储的数据，还有getter和seter函数，方便获取和修改这些数据。你可以直接在组件中引入这个ts，然后使用setter和getter修改state"><a href="#7、使用pinia进行状态管理，比如存储token，现在store里编写一个ts脚本，state就是它存储的数据，还有getter和seter函数，方便获取和修改这些数据。你可以直接在组件中引入这个ts，然后使用setter和getter修改state" class="headerlink" title="7、使用pinia进行状态管理，比如存储token，现在store里编写一个ts脚本，state就是它存储的数据，还有getter和seter函数，方便获取和修改这些数据。你可以直接在组件中引入这个ts，然后使用setter和getter修改state"></a>7、使用pinia进行状态管理，比如存储token，现在store里编写一个ts脚本，state就是它存储的数据，还有getter和seter函数，方便获取和修改这些数据。你可以直接在组件中引入这个ts，然后使用setter和getter修改state</h5><h5 id="8、如果想在请求的时候，做一些前置操作，比如添加一个请求头用来存放token，可以直接在src下面编写一个axios的ts文件，在文件中你可以自定义一个axios，在其中添加一个请求拦截器，在这个拦截器中添加存放token的逻辑"><a href="#8、如果想在请求的时候，做一些前置操作，比如添加一个请求头用来存放token，可以直接在src下面编写一个axios的ts文件，在文件中你可以自定义一个axios，在其中添加一个请求拦截器，在这个拦截器中添加存放token的逻辑" class="headerlink" title="8、如果想在请求的时候，做一些前置操作，比如添加一个请求头用来存放token，可以直接在src下面编写一个axios的ts文件，在文件中你可以自定义一个axios，在其中添加一个请求拦截器，在这个拦截器中添加存放token的逻辑"></a>8、如果想在请求的时候，做一些前置操作，比如添加一个请求头用来存放token，可以直接在src下面编写一个axios的ts文件，在文件中你可以自定义一个axios，在其中添加一个请求拦截器，在这个拦截器中添加存放token的逻辑</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// src/axios.ts</span><br><span class="line">import axios from &#x27;axios&#x27;;</span><br><span class="line"></span><br><span class="line">const instance = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;https:localhost:9090/&#x27;,</span><br><span class="line">  timeout: 1000,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 添加请求拦截器</span><br><span class="line">instance.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    const token = localStorage.getItem(&#x27;token&#x27;);//使用localStorage.setItem(&#x27;token&#x27;)可以存放token到本地浏览器</span><br><span class="line">    if (token) &#123;</span><br><span class="line">      config.headers[&#x27;Authorization&#x27;] = `Bearer $&#123;token&#125;`;</span><br><span class="line">    &#125;</span><br><span class="line">    return config;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default instance;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、后端"><a href="#二、后端" class="headerlink" title="二、后端"></a>二、后端</h2><h5 id="1、注意请求格式要和controller的注解一一对应"><a href="#1、注意请求格式要和controller的注解一一对应" class="headerlink" title="1、注意请求格式要和controller的注解一一对应"></a>1、注意请求格式要和controller的注解一一对应</h5>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" rel="tag"># 前后端分离</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" rel="prev" title="蓝桥杯java组比赛记录">
+                  <i class="fa fa-angle-left"></i> 蓝桥杯java组比赛记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/29/vue-admin-template%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8/" rel="next" title="前端后台页面模板使用">
+                  前端后台页面模板使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">SoulSend</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
